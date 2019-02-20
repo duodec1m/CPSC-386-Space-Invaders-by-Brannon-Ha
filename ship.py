@@ -33,6 +33,7 @@ class Ship(Sprite):
         self.death_sound = pygame.mixer.Sound('sound/explosion.wav')
         self.fire_sound = pygame.mixer.Sound('sound/shoot.wav')
         self.channel = mixer.Channel(1)
+        self.channel.set_volume(0.01)
 
         # Death tag
         self.dead = False

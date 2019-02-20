@@ -1,3 +1,5 @@
+from pygame import mixer
+
 class Settings():
     """A class to store all settings for Alien Invasion."""
 
@@ -38,6 +40,15 @@ class Settings():
 
         self.initialize_dynamic_settings()
 
+        self.background_music = [mixer.Sound('sound/bgm_1.wav'),
+                                 mixer.Sound('sound/bgm_2.wav'),
+                                 mixer.Sound('sound/bgm_3.wav'),
+                                 mixer.Sound('sound/bgm_4.wav')]
+
+        self.bgm_interval = 60 # Start with 60 frame gap between the bgm files
+        self.bgm_buffer = 0
+        self.bgm_index = 0
+
     def initialize_dynamic_settings(self):
         """Initialize settings that change throughout the game."""
         self.ship_speed_factor = 1.5
@@ -54,3 +65,16 @@ class Settings():
         self.bullet_speed_factor *= self.speedup_scale
         self.alien_speed_factor *= self.speedup_scale
         self.beam_speed_factor *= self.speedup_scale
+
+    def play_music(self):
+        if(self.bgm_buffer == int(self.bgm_interval)):
+            mixer.Channel(4).play(self.background_music[self.bgm_index])
+            if(self.bgm_index == 3):
+                self.bgm_index = 0
+            else:
+                self.bgm_index += 1
+            self.bgm_buffer = 0
+        if(self.bgm_interval < 5): #In case player somehow gets really far in-game
+            self.bgm_interval = 5;
+
+        self.bgm_buffer += 1

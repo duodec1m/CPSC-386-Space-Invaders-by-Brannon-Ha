@@ -56,6 +56,7 @@ class Alien(Sprite):
         self.death_sound = pygame.mixer.Sound('sound/invaderkilled.wav')
         self.fire_sound = pygame.mixer.Sound('sound/shoot.wav')
         self.channel = mixer.Channel(2)
+        self.channel.set_volume(0.01)
 
     def check_edges(self):
         """Return True if alien is at edge of screen."""

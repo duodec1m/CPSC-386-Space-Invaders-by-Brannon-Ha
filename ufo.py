@@ -35,6 +35,7 @@ class Ufo(Sprite):
         self.entrance_sound = pygame.mixer.Sound('sound/ufo_highpitch.wav')
         self.death_sound = pygame.mixer.Sound('sound/invaderkilled.wav')
         self.channel = pygame.mixer.Channel(3)
+        self.channel.set_volume(0.01)
 
         # initial position, speed/direction
         self.speed = (choice([-1, 1]))

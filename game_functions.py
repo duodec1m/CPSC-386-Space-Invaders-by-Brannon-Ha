@@ -162,6 +162,9 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens, bunkers, beams, 
         sb.show_score()
 
         bunkers.update()
+
+        #Playing the music
+        ai_settings.play_music()
     # Make the most recently drawn screen visible.
     pygame.display.flip()
 
@@ -213,6 +216,7 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
                 elif (single_alien.type == 2):
                     stats.score += 40 * len(aliens)
                 single_alien.death_animation()
+                ai_settings.bgm_interval -= 0.5
             sb.prep_score()
         check_high_score(stats, sb)
         ai_settings.alien_speed_factor += .01
