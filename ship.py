@@ -13,7 +13,7 @@ class Ship(Sprite):
         self.ai_settings = ai_settings
 
         # Load the ship image, and get its rect.
-        self.ss = spritesheet('SpriteSheet.png')
+        self.ss = spritesheet('images/SpriteSheet.png')
         self.image = self.ss.image_at((0,160,32,32))
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
@@ -30,8 +30,8 @@ class Ship(Sprite):
         self.moving_left = False
 
         # Sound
-        self.death_sound = pygame.mixer.Sound('explosion.wav')
-        self.fire_sound = pygame.mixer.Sound('shoot.wav')
+        self.death_sound = pygame.mixer.Sound('sound/explosion.wav')
+        self.fire_sound = pygame.mixer.Sound('sound/shoot.wav')
         self.channel = mixer.Channel(1)
 
         # Death tag

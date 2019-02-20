@@ -20,7 +20,7 @@ class Alien(Sprite):
         self.dead=False
 
         # Load the alien image, and set its rect attribute.
-        self.ss = spritesheet('SpriteSheet.png')
+        self.ss = spritesheet('images/SpriteSheet.png')
         if(type == 0):
             self.imageT1 = self.ss.image_at((96, 160, 32, 32))
             self.imageT2 = self.ss.image_at((96, 192, 32, 32))
@@ -53,8 +53,8 @@ class Alien(Sprite):
         self.dIndex = 0
 
         # Sound
-        self.death_sound = pygame.mixer.Sound('invaderkilled.wav')
-        self.fire_sound = pygame.mixer.Sound('shoot.wav')
+        self.death_sound = pygame.mixer.Sound('sound/invaderkilled.wav')
+        self.fire_sound = pygame.mixer.Sound('sound/shoot.wav')
         self.channel = mixer.Channel(2)
 
     def check_edges(self):

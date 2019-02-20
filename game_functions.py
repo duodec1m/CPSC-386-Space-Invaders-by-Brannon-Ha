@@ -116,7 +116,7 @@ def update_screen(ai_settings, screen, stats, sb, ship, aliens, bunkers, beams, 
             play_button.draw_button()
             hs_button.draw_button()
 
-            ss = spritesheet('SpriteSheet.png')
+            ss = spritesheet('images/SpriteSheet.png')
             alienType0 = ss.image_at((96, 160, 32, 32))
             alienType1 = ss.image_at((0, 96, 32, 32))
             alienType2 = ss.image_at((64, 96, 32, 32))
@@ -222,7 +222,7 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship,
         for ufo in ufo_collide.values():
             for u in ufo:
                 stats.score += u.score
-                u.begin_death()
+                u.death_animation()
             sb.prep_score()
         check_high_score(stats, sb)
 

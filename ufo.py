@@ -16,7 +16,7 @@ class Ufo(Sprite):
         self.score = None
 
         # images, score text
-        self.ss = spritesheet('SpriteSheet.png')
+        self.ss = spritesheet('images/SpriteSheet.png')
         self.image = self.ss.image_at((64,0,32,32))
         self.rect = self.image.get_rect()
         self.score_image = None
@@ -32,8 +32,8 @@ class Ufo(Sprite):
         self.wait_interval = 500
 
         # sound
-        self.entrance_sound = pygame.mixer.Sound('ufo_highpitch.wav')
-        self.death_sound = pygame.mixer.Sound('ufo_highpitch.wav')
+        self.entrance_sound = pygame.mixer.Sound('sound/ufo_highpitch.wav')
+        self.death_sound = pygame.mixer.Sound('sound/invaderkilled.wav')
         self.channel = pygame.mixer.Channel(3)
 
         # initial position, speed/direction
@@ -51,7 +51,7 @@ class Ufo(Sprite):
         self.channel.stop()
         super().kill()
 
-    def begin_death(self):
+    def death_animation(self):
         self.channel.stop()
         self.channel.play(self.death_sound)
         self.dead = True
